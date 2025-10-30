@@ -45,6 +45,11 @@ public record PlayerEvents(Settings settings) implements Listener {
                         if (!(check.getState().getBlockData() instanceof Ageable ageable && ageable.getAge() >= ageable.getMaximumAge())) {
                             found.add(check);
                         }
+                        // Need to add this for Mangrove Propagules - There might be a better way to do this
+                        else if
+                            (!(check.getState().getBlockData() instanceof Sapling sapling && sapling.getStage() >= sapling.getMaximumStage())) {
+                            found.add(check);
+                        }
                     }
                 }
             }
